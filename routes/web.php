@@ -100,6 +100,7 @@ Route::get('/start/', 'PagesController@start')->name('start');
 
 
 Route::post('/settings/timezone/', 'PagesController@history')->name('saveTimezone');
+Route::get('/history', 'PagesController@historyPage')->name('history');
 
 //Route::get('/friday', 'PagesController@friday')->name('friday');
 

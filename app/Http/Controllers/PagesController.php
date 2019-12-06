@@ -184,5 +184,15 @@ class PagesController extends Controller
         return view('auth.friday');
     }
 
+    public function historyPage()
+    {
+        $user = User::find(Auth::id());
+        $bufferPostings =  BufferPosting::
+        join('social_post_groups', 'social_post_groups.id', '=', 'buffer_postings.group_id')
+        ->orderBy('social_post_groups.created_at','DESC')->take(10)->get();
+        return view('pages.history')->with('user', $user)
+        ->with('bufferPostings', $bufferPostings);
+    }
+
 
 }
